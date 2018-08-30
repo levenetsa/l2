@@ -1,0 +1,5 @@
+deploy:
+  resetScript: reset.bat
+  pullScript: pull.bat
+  applyScript: apply.bat
+  pathToDiff: data.txt

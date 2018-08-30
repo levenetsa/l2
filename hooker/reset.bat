@@ -1,0 +1,1 @@
+cd bot && git reset --hard HEAD

@@ -1,0 +1,1 @@
+cd bot && git apply ..\data.txt

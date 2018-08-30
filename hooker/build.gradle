@@ -18,6 +18,14 @@ bootJar {
     version =  '0.1.0'
 }
 
+bootJar.doLast{
+    copy{
+            from './'
+            include "application.yml"
+            into "/build/libs"
+    }
+}
+
 repositories {
     mavenCentral()
 }
@@ -27,5 +35,4 @@ targetCompatibility = 1.8
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
-    //compile project(":search")
 }
