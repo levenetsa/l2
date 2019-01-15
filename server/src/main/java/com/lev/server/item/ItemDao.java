@@ -20,7 +20,7 @@ public class ItemDao {
         return execute("SELECT * FROM etcitem WHERE item_id = " + id);
     }
 
-    public JSONArray getRow() throws SQLException {
+    public JSONArray getRaw() throws SQLException {
         return execute("SELECT * FROM etcitem");
     }
 
@@ -35,5 +35,10 @@ public class ItemDao {
             array = ResultSetConverter.convertAr(set);
         }
         return array;
+    }
+
+    public String addItem(Item item) {
+        //execute sql to add item
+        return null;
     }
 }

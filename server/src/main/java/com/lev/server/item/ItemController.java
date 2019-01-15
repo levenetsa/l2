@@ -1,10 +1,7 @@
 package com.lev.server.item;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
 
@@ -12,20 +9,26 @@ import java.sql.SQLException;
 public class ItemController {
 
     @Autowired
-    ItemDao itemDao;
+    ItemService itemService;
 
     @RequestMapping("/items")
     public String getAllItems() throws SQLException {
-        return itemDao.getRow().toString();
+        return itemService.getAllItems();
+    }
+
+    @PutMapping
+    @RequestMapping("/item")
+    public String getAdd(@RequestBody Item item) throws SQLException {
+        return itemService.createNewItem(item);
     }
 
     @RequestMapping("/items/{id}")
     public String getItemById(@PathVariable int id) throws SQLException {
-        return itemDao.getById(id).toString();
+        return itemService.getItemById(id);
     }
 
     @RequestMapping("/items/search")
     public String search(@RequestParam String text) throws SQLException {
-        return itemDao.search(text).toString();
+        return itemService.search(text);
     }
 }
