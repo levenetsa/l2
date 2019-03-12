@@ -1,0 +1,9 @@
+<script type="text/javascript">
+	const Http = new XMLHttpRequest();
+const url='http://localhost:8080/items';
+Http.open("GET", url);
+Http.send();
+Http.onreadystatechange=(e)=>{
+console.log(Http.responseText)
+}
+</script>
